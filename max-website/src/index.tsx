@@ -8,13 +8,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import {Header }  from './Components/Header'
+import {Background }  from './Components/Background'
 ;
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Header></Header>,
+    element: <Background></Background>,
   },
 ]);
 
