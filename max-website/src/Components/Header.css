@@ -1,0 +1,14 @@
+.Header{
+    height: 5rem;
+    position: relative;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    height: 4rem;
+    width: 10rem;
+}
+  
