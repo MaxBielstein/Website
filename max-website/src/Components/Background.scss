@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'mechanismo';
+  src: url('../../public/fonts/Mechanismo.otf') format('truetype');
+}
+
+:root{
+    --animated-delay: 1.25s;
+}
+
+.background{
+    background-color: black;
+    background: radial-gradient(rgb(43, 43, 70), #000000);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+}
+
+.background-item-text{
+    background-color: transparent;
+    color: white;
+    padding: 1%;
+    position: absolute;
+    text-align: center;
+    width: fit-content; 
+    margin: 0 auto;
+    font-size:4.5vh;
+    font-weight: bold;
+    font-family: 'mechanismo', sans-serif;
+}
+
+.clickable-item{
+  cursor: pointer;
+  transition: all var(--animated-delay) ease-in-out;
+}
+
+.title{
+    @extend .background-item-text;
+    transform: translate(-50%);
+    font-size:6vh;
+    top: 15%;
+    left: 50%;
+    animation: slideInTop var(--animated-delay) ease forwards;
+}
+
+.about-me{
+  @extend .background-item-text;
+  @extend .clickable-item;
+  top:40%;
+  left:20%;
+  transform: translate(-20%);
+  animation: slideInLeft var(--animated-delay) ease forwards;
+}
+
+.resume{
+  @extend .background-item-text;
+  @extend .clickable-item;
+  right:20%;
+  top:40%;
+  transform: translate(20%);
+  animation: slideInRight var(--animated-delay) ease forwards;
+}
+
+.projects{
+  @extend .background-item-text;
+  @extend .clickable-item;
+  left: 50%;
+  bottom: 30%;
+  transform: translate(-50%);
+  animation: slideInBottom var(--animated-delay) ease forwards;
+}
+
+@keyframes slideInTop {
+    from {
+      top: -50%;
+    }
+  }
+
+@keyframes slideInLeft {
+  from {
+    Left: -50%;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    Right: -50%;
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    Bottom: -50%;
+  }
+}
