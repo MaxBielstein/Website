@@ -1,5 +1,5 @@
 
-import "../index.css";
+import "../index.scss";
 import "./Background.scss";
 import { useNavigate } from "react-router-dom"
 

@@ -17,4 +17,15 @@ button {
   border-radius: 4px;
   color:aliceblue;
   border-color: white;
+
+}
+
+
+.background{
+  background-color: black;
+  background: radial-gradient(rgb(43, 43, 70), #000000);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
 }
