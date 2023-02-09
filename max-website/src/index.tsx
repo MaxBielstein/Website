@@ -10,11 +10,18 @@ import {
 import "./index.css";
 import {Background }  from './Components/Background'
 ;
+import { AboutMe } from './Components/Pages/AboutMe';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Background></Background>,
+    children: [
+      {
+        path: "about-me",
+        element: <AboutMe currentPage='About Me'></AboutMe>
+      }
+    ]
   },
 ]);
 
