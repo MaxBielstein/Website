@@ -1,3 +1,6 @@
+import Background from './Components/Background';
+import  AboutMe from './Components/Pages/AboutMe';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -8,9 +11,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import {Background }  from './Components/Background'
 ;
-import { AboutMe } from './Components/Pages/AboutMe';
+
 
 const router = createBrowserRouter([
   {
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "about-me",
-        element: <AboutMe currentPage='About Me'></AboutMe>
+        element: <AboutMe/>
       }
     ]
   },
@@ -30,7 +32,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
   </React.StrictMode>
 );
 

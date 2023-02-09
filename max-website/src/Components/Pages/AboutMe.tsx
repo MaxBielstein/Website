@@ -1,13 +1,12 @@
 import React from "react";
 import "../../index.css";
-import { Props } from "../Background";
+import "./AboutMe.scss";
 
 
-export class AboutMe extends React.Component<Props>{
+export default function AboutMe(){
 
+    console.log('hi')
 
-    render(){
-        return(<></>);
-    }
+        return(<div className="Main">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsssssAAA</div>);
 
 }
