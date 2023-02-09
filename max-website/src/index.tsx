@@ -6,33 +6,29 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import "./index.css";
 ;
 
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Background></Background>,
-    children: [
-      {
-        path: "about-me",
-        element: <AboutMe/>
-      }
-    ]
-  },
-]);
+const Main = () => {
+  return (
+    <BrowserRouter>
+    <Routes>
+    <Route path="/" element={<Background/>} />
+        <Route path="/about-me" element={<AboutMe/>} />
+    </Routes>
+    </BrowserRouter>
+  );
+};
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-      <RouterProvider router={router} />
+      <Main/>
   </React.StrictMode>
 );
 
