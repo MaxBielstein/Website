@@ -1,11 +1,19 @@
 import React from "react";
 import "../index.css";
 import "./Background.scss";
+export interface Props {
+    currentPage: string,
+}
 
 
+export class Background extends React.Component<{}>{
 
-export class Background extends React.Component{
-
+    constructor(props: {}){
+        super(props);
+        this.state = {
+            currentPage: "Home",
+        }
+    }   
 
 
     render(){
@@ -19,7 +27,7 @@ export class Background extends React.Component{
 
                 const animatedDiv = document.getElementById('about-me');
                 if (animatedDiv) {
-                    const translate =  'translate(30vh, -20vw)';
+                    const translate =  'translate(22vw, -25vh)';
                     animatedDiv.style.transform = translate;
                 }
 
@@ -35,4 +43,9 @@ export class Background extends React.Component{
         </div>
         )
     };
+
+
+
+
+
 }
