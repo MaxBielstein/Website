@@ -1,4 +1,4 @@
-import Background from './Components/Background';
+import {Background} from './Components/Background';
 import  AboutMe from './Components/Pages/AboutMe';
 
 import React from 'react';
@@ -16,7 +16,6 @@ const Main = () => {
     <BrowserRouter>
     <Routes>
     <Route path="/" element={<Background/>} />
-        <Route path="/about-me" element={<AboutMe/>} />
     </Routes>
     </BrowserRouter>
     </div>

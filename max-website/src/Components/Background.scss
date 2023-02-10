@@ -18,6 +18,7 @@
     font-size:4.5vh;
     font-weight: bold;
     font-family: 'mechanismo', sans-serif;
+    transition: visibility 0s 2s, opacity 2s linear;
 }
 
 .clickable-item{
@@ -84,5 +85,12 @@
 @keyframes slideInBottom {
   from {
     Bottom: -50%;
+  }
+}
+
+@keyframes diagonal-animation {
+  to {
+    top: 15%;
+    left: 50%;
   }
 }
