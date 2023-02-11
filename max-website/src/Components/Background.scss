@@ -18,12 +18,10 @@
     font-size:4.5vh;
     font-weight: bold;
     font-family: 'mechanismo', sans-serif;
-    transition: visibility 0s 2s, opacity 2s linear;
 }
 
 .clickable-item{
   cursor: pointer;
-  transition: all var(--animated-delay) ease-in-out;
 }
 
 .title{
