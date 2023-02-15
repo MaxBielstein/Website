@@ -22,6 +22,7 @@
 
 .clickable-item{
   cursor: pointer;
+  transition: all var(--animated-delay) ease-in-out;
 }
 
 .title{

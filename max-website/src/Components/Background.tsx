@@ -1,13 +1,8 @@
 
 import "../index.scss";
 import "./Background.scss";
-import $ from 'jquery';
 import { getHomeTextItems } from "../Utilities/FinalData";
 
-
-function resetToNormalTransition(animatedDiv: HTMLElement){
-    animatedDiv.style.transition = 'all var(--animated-delay) ease-in-out;'
-}
 
 function AnimateDiv(name: string, widthTranslate: string, heightTranslate: string) {
 
@@ -17,20 +12,9 @@ function AnimateDiv(name: string, widthTranslate: string, heightTranslate: strin
             console.log('ran')
             const animatedDiv = document.getElementById(getHomeTextItems()[i]);
             if (animatedDiv && name !== animatedDiv.id) {
-                animatedDiv.style.transition = 'all 0 ease-in-out;';  
-                console.log(animatedDiv.style.transition );
-                console.log('ran2')
-                let opacity = 1;
-                let intervalId: any;
-                console.log(animatedDiv);
-                intervalId = setInterval(() => {
-                    opacity -= 0.005;
-                    animatedDiv.style.opacity = String(opacity);
-                    if (opacity <= 0) {
-                      clearInterval(intervalId);
-                      resetToNormalTransition(animatedDiv);
-                    }
-                  }, 10);
+                
+
+                
             }
         }
     }
