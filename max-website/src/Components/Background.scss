@@ -32,6 +32,7 @@
     top: 15%;
     left: 50%;
     animation: slideInTop var(--animated-delay) ease forwards;
+    transition: all var(--animated-delay) ease-in-out;
 }
 
 .about-me{
