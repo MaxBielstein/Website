@@ -2,6 +2,7 @@
 import "../index.scss";
 import "./Background.scss";
 import { getHomeTextItems } from "../Utilities/FinalData";
+import { centerElementById } from "../Utilities/MovingDivs";
 
 
 function AnimateDiv(name: string, widthTranslate: string, heightTranslate: string) {
@@ -32,26 +33,29 @@ function AnimateDiv(name: string, widthTranslate: string, heightTranslate: strin
 
                 // Moving the button clicked to correct position
             } else if (animatedDiv){
-                if (animatedDiv.className === 'top'){
-                    animatedDiv.style.transform = top;
-                } else if (animatedDiv.className === 'bottom'){
-                    animatedDiv.style.transform = bottom;
-                } else if (animatedDiv.className === 'right'){
-                    animatedDiv.style.transform = right;
-                } else if (animatedDiv.className === 'left'){
-                    animatedDiv.style.transform = 'translate(' + widthTranslate + '%, ' + heightTranslate + ')';
-                }
+                console.log('ran21231`2321')
+                centerElementById(getHomeTextItems()[i]);
+
+                // if (animatedDiv.className === 'top'){
+                //     animatedDiv.style.transform = top;
+                // } else if (animatedDiv.className === 'bottom'){
+                //     animatedDiv.style.transform = bottom;
+                // } else if (animatedDiv.className === 'right'){
+                //     animatedDiv.style.transform = right;
+                // } else if (animatedDiv.className === 'left'){
+                //     animatedDiv.style.transform = 'translate(' + widthTranslate + '%, ' + heightTranslate + ')';
+                // }
             }
 
             
         }
     }
 
-    const animatedDiv = document.getElementById(name);
-    if (animatedDiv) {
-        const translate = 'translate(' + widthTranslate + ', ' + heightTranslate + ')';
-        animatedDiv.style.transform = translate;
-    }
+    // const animatedDiv = document.getElementById(name);
+    // if (animatedDiv) {
+    //     const translate = 'translate(' + widthTranslate + ', ' + heightTranslate + ')';
+    //     animatedDiv.style.transform = translate;
+    // }
 }
 
 
