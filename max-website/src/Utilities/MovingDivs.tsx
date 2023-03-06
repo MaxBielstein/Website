@@ -28,3 +28,49 @@ function invertTranslateString(translateString: string): string {
     const y = new Decimal(-values[1]) + (yUnit === 'px' ? 'px' : '');
     return `translate(${x.toString()}${xUnit}, ${y.toString()}${yUnit})`;
   }
+
+  
+  export function getMoveDivOffPageTranslate(div: HTMLElement, direction: 'right' | 'left' | 'top' | 'bottom'): string {
+    console.log(direction)
+    const distance = Math.max(div.offsetWidth, div.offsetHeight); // get distance to move
+    const currentPosition = div.getBoundingClientRect();
+    let translate = '';
+  
+    switch(direction) {
+      case 'right':
+        translate = `translate(${window.innerWidth - currentPosition.right}px, 0)`;
+        break;
+      case 'left':
+        translate = `translate(-${currentPosition.left + (div.offsetWidth / 2)}px, 0)`;
+        break;
+      case 'top':
+        translate = `translate(-${currentPosition.left}px, -${currentPosition.top}px)`;
+        break;
+      case 'bottom':
+        translate = `translate(-${currentPosition.left -(div.clientWidth/2)}px, ${window.innerHeight - currentPosition.bottom + distance}px)`;
+        break;
+      default:
+        console.error('Invalid direction. Please use one of: right, left, top, bottom');
+        return '';
+    }
+  
+    // check the current transform of the div
+    const currentTransform = div.style.transform;
+    const currentTranslate = currentTransform.match(/translate\(([^)]+)\)/);
+  
+    if (currentTranslate) {
+      // if the current transform includes a translate, remove it
+      const currentTranslateValue = currentTranslate[1].trim();
+      if ((direction === 'top' || direction === 'bottom') && currentTranslateValue.includes('Y')) {
+        div.style.transform = currentTransform.replace(currentTranslate[0], '');
+      } else if ((direction === 'right' || direction === 'left') && currentTranslateValue.includes('X')) {
+        div.style.transform = currentTransform.replace(currentTranslate[0], '');
+      }
+    }
+  
+    // add the new translate to the div's transform style
+    div.style.transform += ` ${translate}`;
+  
+    return translate;
+  }
+  

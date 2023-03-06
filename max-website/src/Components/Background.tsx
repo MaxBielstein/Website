@@ -2,7 +2,7 @@
 import "../index.scss";
 import "./Background.scss";
 import { getHomeTextItems } from "../Utilities/FinalData";
-import { centerElementById } from "../Utilities/MovingDivs";
+import { centerElementById, getMoveDivOffPageTranslate } from "../Utilities/MovingDivs";
 import { useState } from 'react';
 
 interface Props {
@@ -22,10 +22,10 @@ function AnimateDiv(name: string, props: Props) {
         return;
     }
 
-    const top = 'translate(' + 0 + ', ' + (-50) + 'vh)';
-    const bottom = 'translate(' + 0 + ', ' + 50 + 'vh)';
-    const right = 'translate(' + 50 + 'vw, ' + 0 + ')';
-    const left = 'translate(' + (-50) + 'vw, ' + 0 + ')';
+    const top = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'top')
+    const bottom = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'bottom')
+    const right = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'right')
+    const left = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'left')
     let buttonClicked = '';
 
     for (let i = 0; i < getHomeTextItems().length; i++) {
@@ -36,7 +36,11 @@ function AnimateDiv(name: string, props: Props) {
             if (animatedDiv.className.includes('top')) {
                 animatedDiv.style.transform = top;
             } else if (animatedDiv.className.includes('bottom')) {
+                console.log('bottom ran');
+                console.log(animatedDiv.style.transform)
                 animatedDiv.style.transform = bottom;
+                console.log(bottom);
+                console.log(animatedDiv.style.transform)
             } else if (animatedDiv.className.includes('right')) {
                 console.log(';asdokawpdokasd')
                 animatedDiv.style.transform = right;
