@@ -1,5 +1,5 @@
 import {Background} from './Components/Background';
-
+import {RootFinderForm} from "./Components/RootFinder";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
@@ -14,6 +14,7 @@ const Main = () => {
     <BrowserRouter>
     <Routes>
     <Route path="/" element={<Background/>} />
+    <Route path="/rootfinder" element={<RootFinderForm/>} />
     </Routes>
     </BrowserRouter>
     </div>
