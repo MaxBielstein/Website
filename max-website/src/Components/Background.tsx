@@ -4,6 +4,7 @@ import "./Background.scss";
 import { getHomeTextItems } from "../Utilities/FinalData";
 import { centerElementById, getMoveDivOffPageTranslate } from "../Utilities/MovingDivs";
 import { useState } from 'react';
+import { fetchData } from "../api/GeneralApiCalls";
 
 interface Props {
     setActiveButton: (buttonName: string) => void;
@@ -61,6 +62,7 @@ export function AboutMeButton(props: Props) {
     return (
         <div className={`about-me left ${props.activeButton === 'about-me' ? 'active' : ''}`} id="about-me" onClick={() => {
             AnimateDiv('about-me', props);
+            fetchData();
         }}>
             About Me
         </div>
