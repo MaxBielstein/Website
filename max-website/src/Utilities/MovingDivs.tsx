@@ -17,7 +17,7 @@ export function centerElementById(id: string) {
     return invertTranslateString(`translate(${x}px, ${y}px)`);
 }
 
-function invertTranslateString(translateString: string): string {
+export function invertTranslateString(translateString: string): string {
     const values = translateString.match(/-?\d+(\.\d+)?/g)?.map(value => new Decimal(value));
     const xUnit = /-?\d+(\.\d+)?(px|%)/g.exec(translateString)?.[2] || '';
     const yUnit = /-?\d+(\.\d+)?(px|%)/g.exec(translateString)?.[2] || '';
@@ -54,22 +54,7 @@ function invertTranslateString(translateString: string): string {
         return '';
     }
   
-    // check the current transform of the div
-    const currentTransform = div.style.transform;
-    const currentTranslate = currentTransform.match(/translate\(([^)]+)\)/);
   
-    if (currentTranslate) {
-      // if the current transform includes a translate, remove it
-      const currentTranslateValue = currentTranslate[1].trim();
-      if ((direction === 'top' || direction === 'bottom') && currentTranslateValue.includes('Y')) {
-        div.style.transform = currentTransform.replace(currentTranslate[0], '');
-      } else if ((direction === 'right' || direction === 'left') && currentTranslateValue.includes('X')) {
-        div.style.transform = currentTransform.replace(currentTranslate[0], '');
-      }
-    }
-  
-    // add the new translate to the div's transform style
-    div.style.transform += ` ${translate}`;
   
     return translate;
   }

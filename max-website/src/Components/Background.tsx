@@ -2,7 +2,7 @@
 import "../index.scss";
 import "./Background.scss";
 import { getHomeTextItems } from "../Utilities/FinalData";
-import { centerElementById, getMoveDivOffPageTranslate } from "../Utilities/MovingDivs";
+import { centerElementById, getMoveDivOffPageTranslate, invertTranslateString } from "../Utilities/MovingDivs";
 import { useState } from 'react';
 import { fetchData } from "../api/GeneralApiCalls";
 
@@ -15,18 +15,26 @@ interface Props {
 
 function AnimateDiv(name: string, props: Props) {
 
+    const inPage = props.activeButton !== '';
+
+
     if (props.activeButton === name){
         const element = document.querySelector(`#${name}`) as HTMLElement;
         element.style.transform  = '';
-        element.style.transform = props.lastTranslateInverted;
         console.log(props.lastTranslateInverted)
-        return;
     }
 
-    const top = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'top')
-    const bottom = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'bottom')
-    const right = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'right')
-    const left = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'left')
+    let top = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'top')
+    let bottom = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'bottom')
+    let right = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'right')
+    let left = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'left')
+
+    if (inPage){
+        top = '';
+        bottom = '';
+        right = '';
+        left = '';
+    }
     let buttonClicked = '';
 
     for (let i = 0; i < getHomeTextItems().length; i++) {
@@ -47,14 +55,22 @@ function AnimateDiv(name: string, props: Props) {
                 animatedDiv.style.transform = right;
             } else if (animatedDiv.className.includes('left')) {
                 animatedDiv.style.transform = left;
+                console.log(';22')
             }
-        } else {
+        } else if (!inPage){
             // Moving the button clicked to correct position
             props.setLastTranslateInverted(centerElementById(getHomeTextItems()[i]));
             buttonClicked = getHomeTextItems()[i];
+            console.log('something32')
         }
     }
-    props.setActiveButton(buttonClicked);
+
+    if (!inPage){
+        props.setActiveButton(buttonClicked);
+    } else {
+        props.setActiveButton('');
+    }
+    
 
 }
 
@@ -62,7 +78,7 @@ export function AboutMeButton(props: Props) {
     return (
         <div className={`about-me left ${props.activeButton === 'about-me' ? 'active' : ''}`} id="about-me" onClick={() => {
             AnimateDiv('about-me', props);
-            fetchData();
+            //fetchData();
         }}>
             About Me
         </div>
