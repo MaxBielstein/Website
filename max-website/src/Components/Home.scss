@@ -17,12 +17,12 @@
     margin: 0 auto;
     font-size:4.5vh;
     font-weight: bold;
-    font-family: 'mechanismo', sans-serif;
 }
 
 .clickable-item{
   cursor: pointer;
   transition: all var(--animated-delay) ease-in-out;
+  font-family: 'mechanismo', sans-serif;
 }
 
 .title{
@@ -93,4 +93,15 @@
     top: 15%;
     left: 50%;
   }
+}
+
+.about-me-content {
+  @extend .background-item-text;
+  position: absolute;
+  bottom: 50%;
+  visibility: hidden;
+  transform: translateX(-150%);
+  font-size: 2vh;
+  animation: slideInLeft var(--animated-delay) ease forwards;
+  transition: all var(--animated-delay) ease-in-out;
 }
