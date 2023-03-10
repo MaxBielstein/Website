@@ -1,4 +1,4 @@
-import {Background} from './Components/Background';
+import {Background} from './Components/Home';
 import {RootFinderForm} from "./Components/RootFinder";
 import React from 'react';
 import ReactDOM from 'react-dom/client';

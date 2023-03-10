@@ -1,6 +1,6 @@
 import { Decimal } from 'decimal.js';
 // Centers an HTMLElement in the top middle of the screen
-export function centerElementById(id: string) {
+export function centerElementById(id: string, middle=false) {
     const element = document.querySelector(`#${id}`) as HTMLElement;
     console.log('something2')
     if (!element) {
@@ -11,7 +11,8 @@ export function centerElementById(id: string) {
     const windowHeight = window.innerHeight;
     const elementWidth = element.offsetWidth;
     const x = (windowWidth - elementWidth) / 2 - element.offsetLeft;
-    const y = (windowHeight * 0.15) - element.offsetTop;
+
+    const y = middle ? (windowHeight * 0.35) - element.offsetTop : (windowHeight * 0.15) - element.offsetTop;
     element.style.transform = `translate(${x}px, ${y}px)`;
 
     return invertTranslateString(`translate(${x}px, ${y}px)`);

@@ -1,6 +1,6 @@
 
 import "../index.scss";
-import "./Background.scss";
+import "./Home.scss";
 import { getHomeTextItems } from "../Utilities/FinalData";
 import { centerElementById, getMoveDivOffPageTranslate, invertTranslateString } from "../Utilities/MovingDivs";
 import { useState } from 'react';
@@ -18,9 +18,9 @@ function AnimateDiv(name: string, props: Props) {
     const inPage = props.activeButton !== '';
 
 
-    if (props.activeButton === name){
+    if (props.activeButton === name) {
         const element = document.querySelector(`#${name}`) as HTMLElement;
-        element.style.transform  = '';
+        element.style.transform = '';
         console.log(props.lastTranslateInverted)
     }
 
@@ -29,7 +29,7 @@ function AnimateDiv(name: string, props: Props) {
     let right = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'right')
     let left = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'left')
 
-    if (inPage){
+    if (inPage) {
         top = '';
         bottom = '';
         right = '';
@@ -56,22 +56,24 @@ function AnimateDiv(name: string, props: Props) {
             } else if (animatedDiv.className.includes('left')) {
                 animatedDiv.style.transform = left;
                 console.log(';22')
+            } else if (animatedDiv.className.includes('mid')){
+                console.log('rkaposdkaposkdaw');
+                animatedDiv.style.transform = centerElementById(getHomeTextItems()[i], true);
+
             }
-        } else if (!inPage){
+        } else if (!inPage) {
             // Moving the button clicked to correct position
-            props.setLastTranslateInverted(centerElementById(getHomeTextItems()[i]));
+            props.setLastTranslateInverted(centerElementById(getHomeTextItems()[i],));
             buttonClicked = getHomeTextItems()[i];
             console.log('something32')
         }
     }
 
-    if (!inPage){
+    if (!inPage) {
         props.setActiveButton(buttonClicked);
     } else {
         props.setActiveButton('');
     }
-    
-
 }
 
 export function AboutMeButton(props: Props) {
@@ -120,8 +122,25 @@ export function Background() {
                 Max Bielstein
             </div>
             <AboutMeButton {...props} />
+            <AboutMeContent {...props}  />
             <ProjectsButton {...props} />
             <ResumeButton {...props} />
         </div>
     );
 }
+
+export function AboutMeContent(props: Props) {
+    
+    if (props.activeButton === "about-me"){
+        const element = document.querySelector(`#${"about-me-content"}`) as HTMLElement;
+        element.style.visibility = 'visible';
+        console.log('true');
+    }
+      return (
+            <div className="about-me-content mid" id="about-me-content">
+                <p>
+                    This is a paragraph of stuff that is positioned off-screen on the left.
+                </p>
+            </div>
+        );
+      }
