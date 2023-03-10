@@ -11,6 +11,8 @@ interface Props {
     setLastTranslateInverted: (translate: string) => void,
     activeButton: string;
     lastTranslateInverted: string;
+    setMidVisible: React.Dispatch<React.SetStateAction<boolean>>;
+    midVisible: boolean;
 }
 
 function AnimateDiv(name: string, props: Props) {
@@ -22,18 +24,19 @@ function AnimateDiv(name: string, props: Props) {
         const element = document.querySelector(`#${name}`) as HTMLElement;
         element.style.transform = '';
         console.log(props.lastTranslateInverted)
+        props.setMidVisible(false)
     }
 
     let top = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'top')
     let bottom = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'bottom')
     let right = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'right')
     let left = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'left')
-
     if (inPage) {
         top = '';
         bottom = '';
         right = '';
         left = '';
+
     }
     let buttonClicked = '';
 
@@ -56,9 +59,10 @@ function AnimateDiv(name: string, props: Props) {
             } else if (animatedDiv.className.includes('left')) {
                 animatedDiv.style.transform = left;
                 console.log(';22')
-            } else if (animatedDiv.className.includes('mid')){
+            } else if (animatedDiv.className.includes('mid') && !props.midVisible){
                 console.log('rkaposdkaposkdaw');
                 animatedDiv.style.transform = centerElementById(getHomeTextItems()[i], true);
+                props.setMidVisible(true)
 
             }
         } else if (!inPage) {
@@ -109,12 +113,15 @@ export function ResumeButton(props: Props) {
 
 export function Background() {
     const [activeButton, setActiveButton] = useState('');
+    const [midVisible, setMidVisible] = useState(false);
     const [lastTranslateInverted, setLastTranslateInverted] = useState('');
     let props: Props = {
         setLastTranslateInverted: setLastTranslateInverted,
         setActiveButton: setActiveButton,
         activeButton: activeButton,
         lastTranslateInverted: lastTranslateInverted,
+        midVisible: midVisible,
+        setMidVisible: setMidVisible
     };
     return (
         <div className="background">
@@ -129,18 +136,19 @@ export function Background() {
     );
 }
 
-export function AboutMeContent(props: Props) {
+function AboutMeContent(props: Props) {
+
+    console.log(props.midVisible)
     
-    if (props.activeButton === "about-me"){
-        const element = document.querySelector(`#${"about-me-content"}`) as HTMLElement;
-        element.style.visibility = 'visible';
-        console.log('true');
-    }
-      return (
-            <div className="about-me-content mid" id="about-me-content">
-                <p>
-                    This is a paragraph of stuff that is positioned off-screen on the left.
-                </p>
-            </div>
-        );
-      }
+    const transform = props.midVisible ? centerElementById("about-me-content", true) : "translateX(-150%)";
+
+    return (
+      <div
+        className={`about-me-content mid ${props.midVisible ? "visible" : "hidden"}`}
+        id="about-me-content"
+        style={{ transform: transform }}
+      >
+        <p>This is a paragraph of stuff that is positioned off-screen on the left.</p>
+      </div>
+    );
+  }
