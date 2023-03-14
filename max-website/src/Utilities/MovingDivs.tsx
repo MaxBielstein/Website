@@ -12,7 +12,7 @@ export function centerElementById(id: string, middle=false) {
     const elementWidth = element.offsetWidth;
     const x = (windowWidth - elementWidth) / 2 - element.offsetLeft;
 
-    const y = middle ? (windowHeight * 0.35) - element.offsetTop : (windowHeight * 0.15) - element.offsetTop;
+    const y = middle ? (windowHeight * 0.12) - element.offsetTop : (windowHeight * 0.05) - element.offsetTop;
     element.style.transform = `translate(${x}px, ${y}px)`;
 
     return `translate(${x}px, ${y}px)`;

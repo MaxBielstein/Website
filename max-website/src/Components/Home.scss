@@ -17,12 +17,14 @@
     margin: 0 auto;
     font-size:4.5vh;
     font-weight: bold;
+    z-index: 1;
 }
 
 .clickable-item{
   cursor: pointer;
   transition: all var(--animated-delay) ease-in-out;
   font-family: 'mechanismo', sans-serif;
+  z-index: 2;
 }
 
 .title{
@@ -119,6 +121,9 @@
   @extend .background-item-text;
   position: absolute;
   bottom: 50%;
+  height: 85%;
+  width: 55%;
+  padding-bottom: 20%;
   font-size: 2vh;
   animation: slideInLeft var(--animated-delay) ease forwards;
   transition: all var(--animated-delay) ease-in-out;

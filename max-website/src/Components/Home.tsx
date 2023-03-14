@@ -1,10 +1,10 @@
 
 import "../index.scss";
 import "./Home.scss";
-import { getHomeTextItems } from "../Utilities/FinalData";
-import { centerElementById, getMoveDivOffPageTranslate, invertTranslateString } from "../Utilities/MovingDivs";
-import { useState } from 'react';
-import { fetchData } from "../api/GeneralApiCalls";
+import { getHomeMiddleItems, getHomeTextItems } from "../Utilities/FinalData";
+import { centerElementById, getMoveDivOffPageTranslate} from "../Utilities/MovingDivs";
+import { useEffect, useState } from 'react';
+import { fetchData, fetchResume } from "../api/GeneralApiCalls";
 
 interface Props {
     setActiveButton: (buttonName: string) => void;
@@ -66,19 +66,7 @@ function AnimateDiv(name: string, props: Props) {
             } else if (animatedDiv.className.includes('left')) {
                 animatedDiv.style.transform = left;
                 console.log(';22')
-            } else if (animatedDiv.className.includes('mid') && !props.aboutMeVisible && name.includes('about-me')) {
-                animatedDiv.style.transform = centerElementById(getHomeTextItems()[i], true);
-                console.log('LMAO LOL MK<AX LOSER');
-                props.setAboutMeVisible(true)
-            } else if (animatedDiv.className.includes('mid') && !props.resumeVisible  && name.includes('resume')) {
-                animatedDiv.style.transform = centerElementById(getHomeTextItems()[i], true);
-                console.log('222');
-                props.setResumeVisible(true)
-            } else if (animatedDiv.className.includes('mid') && !props.projectsVisible  && name.includes('projects')) {
-                console.log('rkaposdkaposkdaw');
-                animatedDiv.style.transform = centerElementById(getHomeTextItems()[i], true);
-                props.setProjectsVisible(true)
-            }
+            } 
         } else if (!inPage) {
             // Moving the button clicked to correct position
             props.setLastTranslateInverted(centerElementById(getHomeTextItems()[i],));
@@ -86,6 +74,18 @@ function AnimateDiv(name: string, props: Props) {
             console.log('something32')
         }
     }
+
+
+    if (!inPage){
+        if (name.includes('about-me-button') ){
+            props.setAboutMeVisible(true);
+        } else if (name.includes('projects-button')){
+            props.setProjectsVisible(true);
+        } else if (name.includes('resume-button')){
+            props.setResumeVisible(true);
+        }   
+    }
+
 
     if (!inPage) {
         props.setActiveButton(buttonClicked);
@@ -178,7 +178,7 @@ function AboutMe(props: Props) {
 
 function Projects(props: Props) {
 
-    const transform = props.projectsVisible ? centerElementById("projects", true) : "translate(0%, 1500%) translateX(-50%)";
+    const transform = props.projectsVisible ? centerElementById("projects", true) : "translate(0%, 1500%) translateX(225%)";
 
 
     return (
@@ -194,7 +194,18 @@ function Projects(props: Props) {
 
 function Resume(props: Props) {
 
-    const transform = props.resumeVisible ? centerElementById("resume", true) : "translate(1200%, 50%)";
+    const transform = props.resumeVisible ? centerElementById("resume", true) : "translate(500%, 70%)";
+
+    const [pdfUrl, setPdfUrl] = useState<string | null>(null);
+
+    useEffect(() => {
+    const fetchPdfUrl = async () => {
+        const url = await fetchResume();
+        setPdfUrl(url);
+    };
+    fetchPdfUrl();
+    }, []);
+
 
     return (
         <div
@@ -202,7 +213,7 @@ function Resume(props: Props) {
             id="resume"
             style={{ transform: transform }}
         >
-            <p>This is where the resume will be</p>
+            <iframe src={pdfUrl ?? undefined} style={{ width: '100%', height: '100%' }} title="Resume"/>
         </div>
     );
 
