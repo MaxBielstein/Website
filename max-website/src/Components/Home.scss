@@ -35,7 +35,7 @@
     transition: all var(--animated-delay) ease-in-out;
 }
 
-.about-me{
+.about-me-button{
   @extend .background-item-text;
   @extend .clickable-item;
   top:40%;
@@ -44,7 +44,7 @@
   animation: slideInLeft var(--animated-delay) ease forwards;
 }
 
-.resume{
+.resume-button{
   @extend .background-item-text;
   @extend .clickable-item;
   right:20%;
@@ -53,7 +53,7 @@
   animation: slideInRight var(--animated-delay) ease forwards;
 }
 
-.projects{
+.projects-button{
   @extend .background-item-text;
   @extend .clickable-item;
   left: 50%;
@@ -95,7 +95,27 @@
   }
 }
 
-.about-me-content {
+.about-me {
+  @extend .background-item-text;
+  position: absolute;
+  bottom: 50%;
+  font-size: 2vh;
+  animation: slideInLeft var(--animated-delay) ease forwards;
+  transition: all var(--animated-delay) ease-in-out;
+}
+
+
+.projects {
+  @extend .background-item-text;
+  position: absolute;
+  bottom: 50%;
+  font-size: 2vh;
+  animation: slideInLeft var(--animated-delay) ease forwards;
+  transition: all var(--animated-delay) ease-in-out;
+}
+
+
+.resume {
   @extend .background-item-text;
   position: absolute;
   bottom: 50%;
