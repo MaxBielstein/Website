@@ -2,8 +2,9 @@
 import "../index.scss";
 import "./Home.scss";
 import { getHomeMiddleItems, getHomeTextItems } from "../Utilities/FinalData";
-import { centerElementById, getMoveDivOffPageTranslate} from "../Utilities/MovingDivs";
+import { centerElementById, getMoveDivOffPageTranslate } from "../Utilities/MovingDivs";
 import { useEffect, useState } from 'react';
+import profile_pic from '../assets/images/Profile-pic.jpg';
 import { fetchData, fetchResume } from "../api/GeneralApiCalls";
 
 interface Props {
@@ -66,7 +67,7 @@ function AnimateDiv(name: string, props: Props) {
             } else if (animatedDiv.className.includes('left')) {
                 animatedDiv.style.transform = left;
                 console.log(';22')
-            } 
+            }
         } else if (!inPage) {
             // Moving the button clicked to correct position
             props.setLastTranslateInverted(centerElementById(getHomeTextItems()[i],));
@@ -76,14 +77,14 @@ function AnimateDiv(name: string, props: Props) {
     }
 
 
-    if (!inPage){
-        if (name.includes('about-me-button') ){
+    if (!inPage) {
+        if (name.includes('about-me-button')) {
             props.setAboutMeVisible(true);
-        } else if (name.includes('projects-button')){
+        } else if (name.includes('projects-button')) {
             props.setProjectsVisible(true);
-        } else if (name.includes('resume-button')){
+        } else if (name.includes('resume-button')) {
             props.setResumeVisible(true);
-        }   
+        }
     }
 
 
@@ -171,7 +172,14 @@ function AboutMe(props: Props) {
             id="about-me"
             style={{ transform: transform }}
         >
-            <p>This is a paragraph of stuff that is positioned off-screen on the left.</p>
+            <img src={profile_pic} alt="Max Bielstein" />
+            <div className="about-me-content">
+                <h1>Max Bielstein</h1>
+                <p className="paragraph1">I'm Max, a software engineer with a passion for coding and learning new technologies. I began my coding journey at the age of 15, developing Java Minecraft plugins. Outside of my professional life, I enjoy skiing during the winters, investing, and working with finances. I'm always eager to explore new challenges and broaden my horizons. I believe that maintaining a healthy work-life balance is essential for personal growth, and I strive to find new ways to blend my passions with my career.</p>
+                <p className="paragraph2">My experience includes interning at Kiewit and working as a teaching assistant at the University of Nebraska-Lincoln. I've also had the opportunity to work on several interesting projects, such as the pizza visualization application, health department apps, and a Raikes Design Studio project for Farm Credit.</p>
+                <p className="paragraph3">I'm a highly motivated individual committed to constantly improving my skills and growing both personally and professionally. My interests include deep learning, electric bikes, and maintaining a healthy work-life balance. I'm excited to explore new opportunities and face the challenges that lie ahead in the world of software engineering.</p>
+            </div>
+
         </div>
     );
 }
@@ -199,11 +207,11 @@ function Resume(props: Props) {
     const [pdfUrl, setPdfUrl] = useState<string | null>(null);
 
     useEffect(() => {
-    const fetchPdfUrl = async () => {
-        const url = await fetchResume();
-        setPdfUrl(url);
-    };
-    fetchPdfUrl();
+        const fetchPdfUrl = async () => {
+            const url = await fetchResume();
+            setPdfUrl(url);
+        };
+        fetchPdfUrl();
     }, []);
 
 
@@ -213,7 +221,7 @@ function Resume(props: Props) {
             id="resume"
             style={{ transform: transform }}
         >
-            <iframe src={pdfUrl ?? undefined} style={{ width: '100%', height: '100%' }} title="Resume"/>
+            <iframe src={pdfUrl ?? undefined} style={{ width: '100%', height: '100%' }} title="Resume" />
         </div>
     );
 

@@ -98,13 +98,55 @@
 }
 
 .about-me {
-  @extend .background-item-text;
   position: absolute;
   bottom: 50%;
   font-size: 2vh;
   animation: slideInLeft var(--animated-delay) ease forwards;
   transition: all var(--animated-delay) ease-in-out;
+  padding: 2rem;
+  border-radius: 1rem;
+  display: block;
+  position: relative;
+  width: 60vw;
+  margin: 2rem;
+  background-color: transparent;
 }
+
+.about-me img {
+  width: 10rem;
+  height: auto;
+  float: left;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 0;
+}
+
+.about-me-content {
+  display: block;
+}
+
+.about-me h1 {
+  margin-top: 0;
+  color: #ffffff;
+}
+
+.about-me p {
+  margin: 0;
+  text-align: left;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.paragraph1 {
+  margin-right: 12rem;
+  margin-bottom: 1rem;
+}
+
+.paragraph2, .paragraph3 {
+  clear: both;
+  margin-bottom: 1rem;
+}
+
 
 
 .projects {
@@ -128,3 +170,4 @@
   animation: slideInLeft var(--animated-delay) ease forwards;
   transition: all var(--animated-delay) ease-in-out;
 }
+
