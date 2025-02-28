@@ -31,6 +31,7 @@
     @extend .background-item-text;
     transform: translate(-50%);
     font-size:6vh;
+    font-family: 'mechanismo';
     top: 15%;
     left: 50%;
     animation: slideInTop var(--animated-delay) ease forwards;

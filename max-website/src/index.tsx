@@ -1,37 +1,5 @@
-import {Background} from './Components/Home';
-import {RootFinderForm} from "./Components/RootFinder";
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Route, Routes} from 'react-router-dom';
-import "./index.scss";
-;
+import ReactDOM from 'react-dom';
+import App from './App';
 
-
-const Main = () => {
-  return (
-    <div className="background">
-    <BrowserRouter>
-    <Routes>
-    <Route path="/" element={<Background/>} />
-    <Route path="/rootfinder" element={<RootFinderForm/>} />
-    </Routes>
-    </BrowserRouter>
-    </div>
-  );
-};
-
-
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-      <Main/>
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<App />, document.getElementById('root'));

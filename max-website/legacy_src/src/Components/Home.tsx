@@ -18,64 +18,42 @@ interface Props {
     projectsVisible: boolean;
     setResumeVisible: React.Dispatch<React.SetStateAction<boolean>>;
     resumeVisible: boolean;
-
 }
-
 function AnimateDiv(name: string, props: Props) {
-
     const inPage = props.activeButton !== '';
 
-
+    // If the clicked button is active, reset its transform and hide pages.
     if (props.activeButton === name) {
         const element = document.querySelector(`#${name}`) as HTMLElement;
         element.style.transform = '';
-        console.log(props.lastTranslateInverted)
-        props.setAboutMeVisible(false)
-        props.setProjectsVisible(false)
-        props.setResumeVisible(false)
+        props.setAboutMeVisible(false);
+        props.setProjectsVisible(false);
+        props.setResumeVisible(false);
     }
-
-    let top = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'top')
-    let bottom = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'bottom')
-    let right = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'right')
-    let left = getMoveDivOffPageTranslate(document.querySelector(`#${name}`) as HTMLElement, 'left')
-    if (inPage) {
-        top = '';
-        bottom = '';
-        right = '';
-        left = '';
-
-    }
+    
     let buttonClicked = '';
 
-    //TODO REFACTOR THIS STUFF
+    // Loop over all home text items.
     for (let i = 0; i < getHomeTextItems().length; i++) {
-        // Get Element Clicked
-        const animatedDiv = document.getElementById(getHomeTextItems()[i]);
-        // Moving all buttons that are not the one clicked off of the screen
+        const id = getHomeTextItems()[i];
+        const animatedDiv = document.getElementById(id);
         if (animatedDiv && name !== animatedDiv.id) {
+            // Compute the translation individually for each element.
             if (animatedDiv.className.includes('top')) {
-                animatedDiv.style.transform = top;
+                animatedDiv.style.transform = inPage ? '' : getMoveDivOffPageTranslate(animatedDiv, 'top');
             } else if (animatedDiv.className.includes('bottom')) {
-                console.log('bottom ran');
-                console.log(animatedDiv.style.transform)
-                animatedDiv.style.transform = bottom;
-                console.log(bottom);
-                console.log(animatedDiv.style.transform)
+                animatedDiv.style.transform = inPage ? '' : getMoveDivOffPageTranslate(animatedDiv, 'bottom');
             } else if (animatedDiv.className.includes('right')) {
-                animatedDiv.style.transform = right;
+                animatedDiv.style.transform = inPage ? '' : getMoveDivOffPageTranslate(animatedDiv, 'right');
             } else if (animatedDiv.className.includes('left')) {
-                animatedDiv.style.transform = left;
-                console.log(';22')
+                animatedDiv.style.transform = inPage ? '' : getMoveDivOffPageTranslate(animatedDiv, 'left');
             }
-        } else if (!inPage) {
-            // Moving the button clicked to correct position
-            props.setLastTranslateInverted(centerElementById(getHomeTextItems()[i],));
-            buttonClicked = getHomeTextItems()[i];
-            console.log('something32')
+        } else if (!inPage && animatedDiv) {
+            // For the clicked element, center it.
+            props.setLastTranslateInverted(centerElementById(id,));
+            buttonClicked = id;
         }
     }
-
 
     if (!inPage) {
         if (name.includes('about-me-button')) {
@@ -85,10 +63,6 @@ function AnimateDiv(name: string, props: Props) {
         } else if (name.includes('resume-button')) {
             props.setResumeVisible(true);
         }
-    }
-
-
-    if (!inPage) {
         props.setActiveButton(buttonClicked);
     } else {
         props.setActiveButton('');
