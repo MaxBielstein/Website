@@ -61,7 +61,7 @@ const AboutPage: React.FC = () => {
           <Button
             variant="contained"
             color="primary"
-            href="/files/Resume.pdf"
+            href="/files/MaxBielsteinResume.pdf"
             download
           >
             Download Resume
