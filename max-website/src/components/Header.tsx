@@ -24,7 +24,7 @@ const Header: React.FC = () => {
                 size="medium"
                 className={`navButton${pathname === item.to ? ' is-active' : ''}`}
                 onClick={() => navigate(item.to)}
-                role="link"                       // a11y hint: behaves like a link
+                role="link"
                 aria-current={pathname === item.to ? 'page' : undefined}
               >
                 {item.label}
