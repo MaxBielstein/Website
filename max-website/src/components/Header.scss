@@ -1,0 +1,94 @@
+:root {
+  --header-height-xs: 56px;
+  --header-height-sm: 64px;
+
+  /* New: vertical padding for top/bottom spacing */
+  --header-pad-top-xs: 10px;
+  --header-pad-top-sm: 14px;
+  --header-pad-bottom: 8px;
+}
+
+/* Transparent header so the page background shows through */
+.appBar {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Centered bar with extra top padding */
+.toolbar {
+  min-height: var(--header-height-xs);
+  padding-top: var(--header-pad-top-xs);     /* pushes nav down a bit */
+  padding-bottom: var(--header-pad-bottom);  /* keeps balance */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  .toolbar {
+    min-height: var(--header-height-sm);
+    padding-top: var(--header-pad-top-sm);
+  }
+}
+
+/* Centered nav with bigger gaps between buttons */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;    /* more separation between buttons on mobile */
+  flex-wrap: wrap;
+}
+
+@media (min-width: 600px) {
+  .nav {
+    gap: 2rem;    /* even more room on larger screens */
+  }
+}
+
+/* Silver, rounded buttons (no border), slightly larger hit area */
+.navButton {
+  text-transform: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 14px; /* a little less rounded than a pill */
+  color: var(--app-text, #ffffff);
+  background: rgba(192, 192, 192, 0.12); /* translucent silver */
+  border: none;           /* no border */
+  box-shadow: none;
+  backdrop-filter: saturate(120%) blur(2px);
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+@media (min-width: 600px) {
+  .navButton {
+    font-size: 1rem;
+    padding: 0.9rem 2.25rem;
+  }
+}
+
+/* More silver on hover */
+.navButton:hover {
+  background: rgba(192, 192, 192, 0.28);
+  transform: translateY(-1px);
+}
+
+.navButton:active {
+  transform: translateY(0);
+}
+
+.navButton:focus-visible {
+  outline: 2px solid rgba(192, 192, 192, 0.6);
+  outline-offset: 2px;
+}
+
+/* Spacer that exactly matches header height including padding */
+.headerSpacer {
+  height: calc(var(--header-height-xs) + var(--header-pad-top-xs) + var(--header-pad-bottom));
+}
+
+@media (min-width: 600px) {
+  .headerSpacer {
+    height: calc(var(--header-height-sm) + var(--header-pad-top-sm) + var(--header-pad-bottom));
+  }
+}

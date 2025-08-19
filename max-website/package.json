@@ -4,7 +4,7 @@
   "proxy": "http://localhost:8080",
   "private": true,
   "engines": {
-    "node": "18.18.0"
+    "node": "22.18.0"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -63,6 +63,7 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3",
-    "ajv": "^7.2.4"
+    "ajv": "^7.2.4",
+    "react-refresh": "^0.17.0"
   }
 }
