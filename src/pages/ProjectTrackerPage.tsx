@@ -36,8 +36,6 @@ const ProjectTrackerPage: React.FC = () => {
           }
           sourceUrl="https://github.com/MaxBielstein/Website"
         />
-
-        {/* Add more <PendingProject /> cards as needed */}
       </Stack>
     </Page>
   );
