@@ -1,6 +1,6 @@
 /* App-wide CSS variables for universal background & text */
 :root {
-  --app-bg: radial-gradient(rgb(43, 43, 70), #000);
+  --app-bg: radial-gradient(ellipse at 50% 50%, rgb(43, 43, 70) 0%, #1b1d2f 60%, #101423 100%);
   --app-text: #ffffff;
 }
 
