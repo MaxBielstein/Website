@@ -24,7 +24,7 @@ export const theme = createTheme({
         ],
         body: {
           margin: 0,
-          background: 'radial-gradient(ellipse at center, rgba(34, 34, 71, 1) 0%, #181818ff 60%)',
+          background: 'radial-gradient(ellipse at center, rgba(34, 34, 71, 1) 0%, #000000ff 120%)',
           backgroundAttachment: 'fixed',
           backgroundRepeat: 'no-repeat',
           color: '#ffffff',
