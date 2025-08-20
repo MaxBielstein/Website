@@ -20,7 +20,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src/*"
-, "src/components/Header.tsx", "src/pages/AboutPage.tsx"  ]
+  "include": [ "src/*" ]
 }
