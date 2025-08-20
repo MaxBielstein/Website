@@ -34,7 +34,7 @@ const ProjectTrackerPage: React.FC = () => {
               </Stack>
             </ProjectDescription>
           }
-          sourceUrl="https://github.com/your-org/your-repo"
+          sourceUrl="https://github.com/MaxBielstein/Website"
         />
 
         {/* Add more <PendingProject /> cards as needed */}
