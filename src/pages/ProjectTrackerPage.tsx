@@ -14,7 +14,7 @@ const ProjectTrackerPage: React.FC = () => {
       <Stack spacing={3}>
         <PendingProject
           title="Project Tracker Website Page"
-          progress={30}
+          progress={32}
           status="in_progress"
           description={
             <ProjectDescription>
