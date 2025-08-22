@@ -36,6 +36,29 @@ const ProjectTrackerPage: React.FC = () => {
           }
           sourceUrl="https://github.com/MaxBielstein/Website"
         />
+        <PendingProject
+          title="Repository to text compressor for AI"
+          progress={15}
+          status="in_progress"
+          description={
+            <ProjectDescription>
+              <Stack spacing={2}>
+                <Typography variant="body2" component="p">
+                  The repository to text compressor for AI is an idea I came up with when playing around with open AI.
+                  I needed a tool for taking an entire repository and compiling it into a single text document so that I could send the entire structure and code of a project to OpenAPIs AI model for review.
+                  The aim of this tool is to do exactly that
+                </Typography>
+                <Typography variant="body2" component="p">
+                 I currently have a first draft of it built out in python but I am yet to put it up on a public repository. So the below source code link will not work quite yet
+                </Typography>
+                <Typography variant="body2" component="p">
+                  Eventually I want to optimize this app even more so that I can compress an entire repository into a very small amount text to be able to save money on tokens. However, the AI still has to be able to understand the complete code structure and code inside the files, which is the primary challenge.
+                </Typography>
+              </Stack>
+            </ProjectDescription>
+          }
+          sourceUrl="https://github.com/MaxBielstein/Website"
+        />
       </Stack>
     </Page>
   );
