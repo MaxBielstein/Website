@@ -57,7 +57,6 @@ const ProjectTrackerPage: React.FC = () => {
               </Stack>
             </ProjectDescription>
           }
-          sourceUrl="https://github.com/MaxBielstein/Website"
         />
       </Stack>
     </Page>

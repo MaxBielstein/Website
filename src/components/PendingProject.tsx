@@ -11,7 +11,7 @@ export type PendingProjectProps = {
   status: ProjectStatusValue;
   blockedInfo?: React.ReactNode;
   description: React.ReactElement<ProjectDescriptionProps, typeof ProjectDescription>;
-  sourceUrl: string;
+  sourceUrl?: string;
 };
 
 const PendingProject: React.FC<PendingProjectProps> = ({
@@ -32,15 +32,21 @@ const PendingProject: React.FC<PendingProjectProps> = ({
           {description}
           <Divider />
           <Box>
-            <Link
-              href={sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              underline="always"
-              sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.75, fontWeight: 600 }}
-            >
-              Source code <LaunchIcon fontSize="small" />
-            </Link>
+            {sourceUrl ? (
+              <Link
+                href={sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                underline="always"
+                sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.75, fontWeight: 600 }}
+              >
+                Source code <LaunchIcon fontSize="small" />
+              </Link>
+            ) : (
+              <Typography variant="body2" color="text.secondary" fontWeight={600}>
+                Source code is private
+              </Typography>
+            )}
           </Box>
         </Stack>
       </CardContent>
