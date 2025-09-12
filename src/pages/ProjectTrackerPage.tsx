@@ -8,7 +8,7 @@ const ProjectTrackerPage: React.FC = () => {
   return (
     <Page maxWidth="md" center>
       <Typography variant="h3" component="h1" gutterBottom>
-        Current Projects
+        Project Tracker
       </Typography>
 
       <Stack spacing={3}>

@@ -5,7 +5,7 @@ import './Header.scss';
 
 const navItems = [
   { label: 'Home', to: '/' },
-  { label: 'Project Tracker', to: '/project-tracker' },
+  { label: 'Current Projects', to: '/project-tracker' },
   { label: 'Portfolio', to: '/portfolio' },
 ];
 
