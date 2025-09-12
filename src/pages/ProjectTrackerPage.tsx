@@ -59,7 +59,7 @@ const ProjectTrackerPage: React.FC = () => {
           }
         />
         <PendingProject
-          title="NextJs - AWS Website Template"
+          title="Next.js - AWS Website Template"
           progress={2}
           status="in_progress"
           description={
@@ -69,7 +69,7 @@ const ProjectTrackerPage: React.FC = () => {
                   This template will serve as my goto template when creating new web applications. 
                 </Typography>
                 <Typography variant="body2" component="p">
-                 I am setting it up with nextjs and AWS so that I can have a scalable solution that will work for pretty much any web application project
+                 I am setting it up with Next.js and AWS so that I can have a scalable solution that will work for pretty much any web application project
                 </Typography>
                 <Typography variant="body2" component="p">
                   The goal of this project is to have a template setup so that I can quickly create and deploy web applications for my different projects.
