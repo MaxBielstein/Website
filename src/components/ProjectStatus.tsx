@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Box, Typography, ButtonBase, Tooltip, Collapse } from '@mui/material';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-
-export type ProjectStatusValue = 'in_progress' | 'blocked' | 'not_started' | 'on_hold';
+import { ProjectStatusValue } from '../types/project'
 
 export type ProjectStatusProps = {
   status: ProjectStatusValue;

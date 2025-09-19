@@ -3,6 +3,7 @@ import { Typography, Stack } from '@mui/material';
 import Page from '../components/Page';
 import PendingProject from '../components/PendingProject';
 import ProjectDescription from '../components/ProjectDescription';
+import { ProjectStatusValue } from '../types/project';
 
 const ProjectTrackerPage: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const ProjectTrackerPage: React.FC = () => {
         <PendingProject
           title="Project Tracker Website Page"
           progress={33}
-          status="in_progress"
+          status={ProjectStatusValue.IN_PROGRESS}
           description={
             <ProjectDescription>
               <Stack spacing={2}>
@@ -39,7 +40,7 @@ const ProjectTrackerPage: React.FC = () => {
         <PendingProject
           title="Repository to text compressor for AI"
           progress={15}
-          status="in_progress"
+          status={ProjectStatusValue.IN_PROGRESS}
           description={
             <ProjectDescription>
               <Stack spacing={2}>
@@ -49,7 +50,7 @@ const ProjectTrackerPage: React.FC = () => {
                   The aim of this tool is to do exactly that
                 </Typography>
                 <Typography variant="body2" component="p">
-                 I currently have a first draft of it built out in python but I am yet to put it up on a public repository. So the below source code link will not work quite yet
+                  I currently have a first draft of it built out in python but I am yet to put it up on a public repository. So the below source code link will not work quite yet
                 </Typography>
                 <Typography variant="body2" component="p">
                   Eventually I want to optimize this app even more so that I can compress an entire repository into a very small amount text to be able to save money on tokens. However, the AI still has to be able to understand the complete code structure and code inside the files, which is the primary challenge.
@@ -61,15 +62,15 @@ const ProjectTrackerPage: React.FC = () => {
         <PendingProject
           title="Next.js - AWS Website Template"
           progress={2}
-          status="in_progress"
+          status={ProjectStatusValue.IN_PROGRESS}
           description={
             <ProjectDescription>
               <Stack spacing={2}>
                 <Typography variant="body2" component="p">
-                  This template will serve as my goto template when creating new web applications. 
+                  This template will serve as my goto template when creating new web applications.
                 </Typography>
                 <Typography variant="body2" component="p">
-                 I am setting it up with Next.js and AWS so that I can have a scalable solution that will work for pretty much any web application project
+                  I am setting it up with Next.js and AWS so that I can have a scalable solution that will work for pretty much any web application project
                 </Typography>
                 <Typography variant="body2" component="p">
                   The goal of this project is to have a template setup so that I can quickly create and deploy web applications for my different projects.

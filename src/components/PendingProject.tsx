@@ -3,7 +3,8 @@ import { Card, CardHeader, CardContent, Box, Stack, Typography, Link, Divider } 
 import LaunchIcon from '@mui/icons-material/Launch';
 import ProgressBar from './ProgressBar';
 import ProjectDescription, { ProjectDescriptionProps } from './ProjectDescription';
-import ProjectStatus, { ProjectStatusValue } from './ProjectStatus';
+import ProjectStatus from './ProjectStatus';
+import { ProjectStatusValue } from '../types/project';
 
 export type PendingProjectProps = {
   title: string;
