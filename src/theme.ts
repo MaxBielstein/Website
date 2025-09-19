@@ -30,10 +30,19 @@ export const theme = createTheme({
           color: '#ffffff',
           overflowX: 'hidden',
         },
-        '::-webkit-scrollbar': { width: '8px' },
+        '::-webkit-scrollbar': {
+          width: '14px', // slightly wider than before
+        },
+        '::-webkit-scrollbar-track': {
+          backgroundColor: '#101423',
+        },
         '::-webkit-scrollbar-thumb': {
-          backgroundColor: 'rgba(255,255,255,0.15)',
-          borderRadius: 4,
+          backgroundColor: 'rgba(158,170,255,0.4)', // primary on theme
+          borderRadius: 6,
+          border: '2px solid #101423',
+        },
+        '::-webkit-scrollbar-thumb:hover': {
+          backgroundColor: 'rgba(158,170,255,0.7)',
         },
       },
     },
