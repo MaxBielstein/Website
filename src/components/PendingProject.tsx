@@ -29,7 +29,11 @@ const PendingProject: React.FC<PendingProjectProps> = ({
       <CardContent>
         <Stack spacing={2.5}>
           <ProjectStatus status={status} blockedInfo={blockedInfo} />
-          <ProgressBar value={progress} thickness={28} />
+
+          {status !== ProjectStatusValue.ON_HOLD && (
+            <ProgressBar value={progress} thickness={28} />
+          )}
+
           {description}
           <Divider />
           <Box>
