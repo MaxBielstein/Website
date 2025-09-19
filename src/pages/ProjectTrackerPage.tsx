@@ -87,7 +87,7 @@ const ProjectTrackerPage: React.FC = () => {
           status={ProjectStatusValue.ON_HOLD}
           description={
             <ProjectDescription>
-              <Stack spacing={15}>
+              <Stack spacing={2}>
                 <Typography variant="body2" component="p">
                   This project is an AI model project to create a model which can identify what toppings are on an uncooked pizza before putting it in the oven.
                 </Typography>
