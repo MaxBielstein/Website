@@ -40,7 +40,7 @@ const AboutPage: React.FC = () => {
             </Typography>
 
 
-            <Button variant="contained" color="primary" href="/files/Resume2025Q3.pdf" download>
+            <Button variant="contained" color="primary" href="/files/Resume2026Q2.pdf" download>
                 Download Resume
             </Button>
         </Page>

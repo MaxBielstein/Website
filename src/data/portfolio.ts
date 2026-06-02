@@ -112,4 +112,4 @@ export const links: LinkItem[] = [
   { label: 'Website', url: 'https://www.maxbielstein.com' },
 ];
 
-export const resumeUrl = '/files/Resume2025Q3.pdf';
+export const resumeUrl = '/files/Resume2026Q2.pdf';
