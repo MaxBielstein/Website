@@ -5,8 +5,8 @@ import './Header.scss';
 
 const navItems = [
   { label: 'Home', to: '/' },
-  { label: 'Current Projects', to: '/project-tracker' },
   { label: 'Portfolio', to: '/portfolio' },
+  { label: 'Projects', to: '/project-tracker' },
 ];
 
 const Header: React.FC = () => {

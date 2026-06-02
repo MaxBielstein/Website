@@ -35,6 +35,10 @@
   flex-wrap: wrap;
 }
 
+.nav .navButton {
+  flex: 1 1 0;
+}
+
 @media (min-width: 600px) {
   .nav {
     gap: 2rem;
@@ -53,6 +57,7 @@
   box-shadow: none;
   backdrop-filter: saturate(120%) blur(2px);
   transition: background 150ms ease, transform 150ms ease;
+  white-space: nowrap;
 }
 
 @media (min-width: 600px) {
