@@ -26,17 +26,19 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => (
               spacing={{ xs: 0, sm: 1 }}
               sx={{ color: 'text.secondary', mb: 1 }}
               divider={
-                <Box
-                  component="span"
-                  sx={{ display: { xs: 'none', sm: 'block' } }}
-                  aria-hidden
-                >
-                  •
-                </Box>
+                role.location ? (
+                  <Box
+                    component="span"
+                    sx={{ display: { xs: 'none', sm: 'block' } }}
+                    aria-hidden
+                  >
+                    •
+                  </Box>
+                ) : undefined
               }
             >
               <Typography variant="body2">{role.period}</Typography>
-              <Typography variant="body2">{role.location}</Typography>
+              {role.location && <Typography variant="body2">{role.location}</Typography>}
             </Stack>
             <Stack component="ul" spacing={0.75} sx={{ m: 0, pl: 2.5 }}>
               {role.bullets.map((bullet, i) => (

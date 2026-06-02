@@ -4,7 +4,7 @@
 export type Role = {
   title: string;
   period: string;
-  location: string;
+  location?: string;
   bullets: string[];
 };
 
@@ -13,20 +13,43 @@ export type Experience = {
   roles: Role[];
 };
 
-export type PortfolioProject = {
-  name: string;
-  tagline: string;
-  bullets: string[];
-};
-
 export type LinkItem = {
   label: string;
   url: string;
 };
 
+export type PortfolioProject = {
+  name: string;
+  tagline: string;
+  bullets?: string[];
+  link?: LinkItem;
+};
+
+// Featured project shown in its own prominent section at the top of the page.
+export type FeaturedProject = {
+  name: string;
+  tagline: string;
+  bullets: string[];
+  link: LinkItem;
+};
+
 export const intro =
   "Software engineer with extensive cloud experience, specializing in scalable AWS solutions, " +
   "automation, and applied AI. Below is a snapshot of my experience and projects.";
+
+// The standout project — rendered in its own highlighted section.
+export const featuredProject: FeaturedProject = {
+  name: 'Thawe',
+  tagline:
+    'A professional networking app that connects entrepreneurs and professionals through a swipe-based matching system, enabling meaningful business relationships and collaboration opportunities.',
+  bullets: [
+    'Built a cross-platform professional networking mobile app (iOS & Android) using React Native, Expo, and TypeScript, featuring a swipe-based discovery interface, real-time messaging, and location-based search integrated with Firebase and a custom REST API.',
+    'Applied agentic AI to add documentation, fix bugs, and develop features within the app using GitHub Copilot, Claude Code, and Codex.',
+    'Architected a hybrid data model combining PostgreSQL for structured profile data with Firestore for real-time messaging, integrating Firebase Cloud Messaging for push notifications and Sightengine AI for automated content moderation at upload time.',
+    'Engineered a location-based networking backend using Django REST Framework, PostgreSQL/PostGIS, and Firebase Auth, enabling geospatial user discovery with configurable radius filtering and full-text profile search with weighted relevance ranking.',
+  ],
+  link: { label: 'Visit thaweapp.com', url: 'https://thaweapp.com' },
+};
 
 export const experience: Experience[] = [
   {
@@ -41,6 +64,7 @@ export const experience: Experience[] = [
           'Managed team application operations during on-call shifts, actively monitoring metrics and escalating issues when needed.',
           'Built GitHub Actions workflows to automate the disaster recovery processes for our applications.',
           'Designed and implemented a scalable sync solution using TypeScript to keep data up to date using parallel asynchronous calls between several different internal APIs.',
+          'Used Domain Driven Design to build up domain APIs using an event messaging architecture.',
         ],
       },
       {
@@ -51,6 +75,20 @@ export const experience: Experience[] = [
           'Upgraded and maintained multiple Amazon Web Services (AWS) applications that incorporate domain-driven design.',
           'Created and maintained GitHub Actions workflows to automate the testing and deployment of applications.',
           'Implemented AWS alarms to track errors and alert the team when they occur.',
+        ],
+      },
+    ],
+  },
+  {
+    company: 'Thawe LLC',
+    roles: [
+      {
+        title: 'Cofounder',
+        period: 'August 2025 – Present',
+        bullets: [
+          'Designed and implemented a professional networking mobile app to allow users to connect with like-minded professionals in their area.',
+          'Architected a Django backend prioritizing security and release velocity.',
+          'Prioritized and implemented features based on market data and customer feedback.',
         ],
       },
     ],
@@ -89,6 +127,12 @@ export const experience: Experience[] = [
 
 export const projects: PortfolioProject[] = [
   {
+    name: 'Thawe',
+    tagline:
+      'A professional networking app that connects entrepreneurs and professionals through a swipe-based matching system. Featured in detail at the top of this page.',
+    link: { label: 'Visit thaweapp.com', url: 'https://thaweapp.com' },
+  },
+  {
     name: 'Pizza Visualization Application',
     tagline: 'Displays pizzas within a pizza oven without the use of interior cameras.',
     bullets: [
@@ -103,6 +147,13 @@ export const projects: PortfolioProject[] = [
     bullets: [
       'Created a reinforcement learning algorithm to optimize the speed of an existing formal verification software called EvoAlloy.',
       'Successfully decreased the time needed for the formal verification to complete in many cases.',
+    ],
+  },
+  {
+    name: 'Next.js AWS Website Template',
+    tagline: 'Template for quickly creating and deploying websites out to AWS.',
+    bullets: [
+      'Used AWS CDK to create a reusable AWS application template.',
     ],
   },
 ];

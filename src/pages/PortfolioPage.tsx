@@ -6,8 +6,10 @@ import Page from '../components/Page';
 import PortfolioSection from '../components/PortfolioSection';
 import ExperienceCard from '../components/ExperienceCard';
 import PortfolioProjectCard from '../components/PortfolioProjectCard';
+import FeaturedProjectCard from '../components/FeaturedProjectCard';
 import {
   intro,
+  featuredProject,
   experience,
   projects,
   links,
@@ -36,6 +38,9 @@ const PortfolioPage: React.FC = () => {
             Download Resume
           </Button>
         </Box>
+
+        {/* Featured project */}
+        <FeaturedProjectCard project={featuredProject} />
 
         {/* Experience */}
         <PortfolioSection title="Experience">
