@@ -14,6 +14,29 @@ const ProjectTrackerPage: React.FC = () => {
 
       <Stack spacing={3}>
         <PendingProject
+          title="Thawe"
+          progress={70}
+          status={ProjectStatusValue.IN_PROGRESS}
+          description={
+            <ProjectDescription>
+              <Stack spacing={2}>
+                <Typography variant="body2" component="p">
+                  Thawe is a professional networking app that connects entrepreneurs and professionals through a swipe-based matching system, enabling meaningful business relationships and collaboration opportunities.
+                </Typography>
+                <Typography variant="body2" component="p">
+                  Users can create professional profiles showcasing their work and goals, discover nearby professionals, and use direct messaging to explore opportunities. Thawe also helps users find local networking events to take connections offline.
+                </Typography>
+                <Typography variant="body2" component="p">
+                  The platform uses intelligent matching algorithms to recommend relevant connections based on interests, goals, and professional background. It is available on iOS and Android, with a web platform in development, and offers a freemium model with premium features like advanced matching and exclusive event access.
+                </Typography>
+                <Typography variant="body2" component="p">
+                  This is an ongoing project. You can check it out at <a href="https://thaweapp.com" target="_blank" rel="noopener noreferrer">thaweapp.com</a>.
+                </Typography>
+              </Stack>
+            </ProjectDescription>
+          }
+        />
+        <PendingProject
           title="Project Tracker Website Page"
           progress={57}
           status={ProjectStatusValue.IN_PROGRESS}
@@ -58,29 +81,6 @@ const ProjectTrackerPage: React.FC = () => {
             </ProjectDescription>
           }
           sourceUrl="https://github.com/MaxBielstein/AWS-Website-template"
-        />
-        <PendingProject
-          title="Thawe"
-          progress={70}
-          status={ProjectStatusValue.IN_PROGRESS}
-          description={
-            <ProjectDescription>
-              <Stack spacing={2}>
-                <Typography variant="body2" component="p">
-                  Thawe is a professional networking app that connects entrepreneurs and professionals through a swipe-based matching system, enabling meaningful business relationships and collaboration opportunities.
-                </Typography>
-                <Typography variant="body2" component="p">
-                  Users can create professional profiles showcasing their work and goals, discover nearby professionals, and use direct messaging to explore opportunities. Thawe also helps users find local networking events to take connections offline.
-                </Typography>
-                <Typography variant="body2" component="p">
-                  The platform uses intelligent matching algorithms to recommend relevant connections based on interests, goals, and professional background. It is available on iOS and Android, with a web platform in development, and offers a freemium model with premium features like advanced matching and exclusive event access.
-                </Typography>
-                <Typography variant="body2" component="p">
-                  This is an ongoing project. You can check it out at <a href="https://thaweapp.com" target="_blank" rel="noopener noreferrer">thaweapp.com</a>.
-                </Typography>
-              </Stack>
-            </ProjectDescription>
-          }
         />
         <PendingProject
           title="AI Pizza Identifier"
