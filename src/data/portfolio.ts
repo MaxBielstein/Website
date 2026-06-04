@@ -127,10 +127,22 @@ export const experience: Experience[] = [
 
 export const projects: PortfolioProject[] = [
   {
-    name: 'Thawe',
-    tagline:
-      'A professional networking app that connects entrepreneurs and professionals through a swipe-based matching system. Featured in detail at the top of this page.',
-    link: { label: 'Visit thaweapp.com', url: 'https://thaweapp.com' },
+    name: 'Next.js AWS Website Template',
+    tagline: 'Template website for quickly creating and deploying websites out to AWS.',
+    bullets: [
+      'Engineered a multi-region (active/passive) disaster recovery architecture on AWS with Route53 health checks and automatic DNS failover, achieving cross-region resilience with no client-side changes.',
+      'Delivered a serverless Next.js 15 app on AWS Lambda via the Lambda Web Adapter, fronted by API Gateway and CloudFront for low-cost, auto-scaling hosting.',
+      'Authored a reusable AWS CDK (TypeScript) infrastructure template provisioning Lambda, CloudFront, Route53, ACM, and WAF from a single configurable interface.',
+    ],
+  },
+  {
+    name: 'AWS Serverless API Template',
+    tagline: 'Template for quickly creating and deploying AWS Lambda APIs.',
+    bullets: [
+      'Architected a multi-region active/passive AWS API with automated Route53 health-check DNS failover for disaster recovery.',
+      'Built a reusable serverless API template as TypeScript AWS CDK infrastructure-as-code, with isolated dev/staging/prod environments.',
+      'Deployed API Gateway v2 + Lambda behind a global CloudFront edge with ACM TLS and custom domains.',
+    ],
   },
   {
     name: 'Pizza Visualization Application',
@@ -149,12 +161,12 @@ export const projects: PortfolioProject[] = [
       'Successfully decreased the time needed for the formal verification to complete in many cases.',
     ],
   },
+  // Thawe is intentionally last since it is already featured in detail at the top.
   {
-    name: 'Next.js AWS Website Template',
-    tagline: 'Template for quickly creating and deploying websites out to AWS.',
-    bullets: [
-      'Used AWS CDK to create a reusable AWS application template.',
-    ],
+    name: 'Thawe',
+    tagline:
+      'A professional networking app that connects entrepreneurs and professionals through a swipe-based matching system. Featured in detail at the top of this page.',
+    link: { label: 'Visit thaweapp.com', url: 'https://thaweapp.com' },
   },
 ];
 

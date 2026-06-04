@@ -38,7 +38,7 @@ const ProjectTrackerPage: React.FC = () => {
         />
         <PendingProject
           title="Project Tracker Website Page"
-          progress={57}
+          progress={61}
           status={ProjectStatusValue.IN_PROGRESS}
           description={
             <ProjectDescription>

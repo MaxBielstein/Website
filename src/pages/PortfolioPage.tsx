@@ -58,9 +58,20 @@ const PortfolioPage: React.FC = () => {
               gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
             }}
           >
-            {projects.map((project) => (
-              <PortfolioProjectCard key={project.name} project={project} />
-            ))}
+            {projects.map((project, i) => {
+              // With a 2-column grid an odd number of projects leaves the last
+              // card alone on its row; span it across both columns so it fills
+              // the width instead of leaving a gap.
+              const isLeftover = projects.length % 2 === 1 && i === projects.length - 1;
+              return (
+                <Box
+                  key={project.name}
+                  sx={isLeftover ? { gridColumn: { md: '1 / -1' } } : undefined}
+                >
+                  <PortfolioProjectCard project={project} />
+                </Box>
+              );
+            })}
           </Box>
         </PortfolioSection>
 
